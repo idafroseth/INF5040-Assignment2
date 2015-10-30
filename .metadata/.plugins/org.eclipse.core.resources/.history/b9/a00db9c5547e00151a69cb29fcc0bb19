@@ -1,0 +1,15 @@
+package model;
+import spread.BasicMessageListener;
+import spread.SpreadMessage;
+
+public class MessageListener implements BasicMessageListener {
+
+	@Override
+	public void messageReceived(SpreadMessage message) {
+		// TODO Auto-generated method stub
+		if(message.getMembershipInfo().getMembers().length>1){
+			
+		}
+	}
+
+}

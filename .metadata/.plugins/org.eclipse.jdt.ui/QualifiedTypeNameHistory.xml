@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="spread.SpreadConnection"/>
+<fullyQualifiedTypeName name="java.net.InetAddress"/>
+<fullyQualifiedTypeName name="spread.SpreadMessage"/>
+<fullyQualifiedTypeName name="spread.MessageFactory"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="spread.BasicMessageListener"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="spread.SpreadGroup"/>
+<fullyQualifiedTypeName name="spread.MembershipInfo"/>
+<fullyQualifiedTypeName name="spread.AdvancedMessageListener"/>
+</qualifiedTypeNameHistroy>

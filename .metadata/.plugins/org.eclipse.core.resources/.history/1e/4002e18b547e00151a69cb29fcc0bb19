@@ -1,0 +1,6 @@
+package model;
+import spread.BasicMessageListener;
+
+public class MessageListener implements BasicMessageListener {
+
+}

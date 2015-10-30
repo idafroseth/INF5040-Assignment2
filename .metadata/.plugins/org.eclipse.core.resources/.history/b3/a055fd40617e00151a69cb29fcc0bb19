@@ -1,0 +1,39 @@
+package model;
+import spread.AdvancedMessageListener;
+import spread.BasicMessageListener;
+import spread.MembershipInfo;
+import spread.SpreadGroup;
+import spread.SpreadMessage;
+
+public class MessageListener implements AdvancedMessageListener {
+
+	@Override
+	public void regularMessageReceived(SpreadMessage message) {
+		// TODO Auto-generated method stub
+		System.out.println("Regular message recived");
+		
+	}
+
+	@Override
+	public void membershipMessageReceived(SpreadMessage message) {
+		// TODO Auto-generated method stub
+		MembershipInfo info = message.getMembershipInfo();
+		System.out.println("********START MEMBERSHIP INFO**********");
+		if(info.isCausedByJoin()){
+			System.out.println(info.getJoined() + " joined");
+			if(info.getMembers().length>1){
+				notify();
+			}
+		}
+		else if(info.isCausedByLeave()){
+			System.out.println(info.getLeft() + " left");
+		}
+		else if(info.isCausedByDisconnect()){
+			System.out.println(info.getDisconnected() + " disconnected");
+		}
+		
+		System.out.println("********END MEMBERSHIP INFO**********");
+		
+	}
+
+}

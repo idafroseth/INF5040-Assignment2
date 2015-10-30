@@ -1,0 +1,13 @@
+deposit 100
+sleep 2
+withdraw 50
+sleep 2
+addinterest 4
+sleep 2
+balance
+sleep 2  
+withdraw 50
+sleep 2
+addinterest 4  
+sleep 2
+balance

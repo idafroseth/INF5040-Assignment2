@@ -1,0 +1,105 @@
+package model;
+import spread.BasicMessageListener;
+import spread.MembershipInfo;
+import spread.SpreadGroup;
+import spread.SpreadMessage;
+
+public class MessageListener implements BasicMessageListener {
+
+	@Override
+	public void messageReceived(SpreadMessage message) {
+		// TODO Auto-generated method stub
+		try
+		{
+			if(message.getMembershipInfo().getMembers().length>2){
+				
+			}
+			if(message.isRegular())
+			{
+				System.out.print("Received a ");
+				if(message.isUnreliable())
+					System.out.print("UNRELIABLE");
+				else if(message.isReliable())
+					System.out.print("RELIABLE");
+				else if(message.isFifo())
+					System.out.print("FIFO");
+				else if(message.isCausal())
+					System.out.print("CAUSAL");
+				else if(message.isAgreed())
+					System.out.print("AGREED");
+				else if(message.isSafe())
+					System.out.print("SAFE");
+				System.out.println(" message.");
+				
+				System.out.println("Sent by  " + message.getSender() + ".");
+				
+				System.out.println("Type is " + message.getType() + ".");
+				
+				if(message.getEndianMismatch() == true)
+					System.out.println("There is an endian mismatch.");
+				else
+					System.out.println("There is no endian mismatch.");
+				
+				SpreadGroup groups[] = message.getGroups();
+				System.out.println("To " + groups.length + " groups.");
+				
+				byte data[] = message.getData();
+				System.out.println("The data is " + data.length + " bytes.");
+				
+				System.out.println("The message is: " + new String(data));
+			}
+			else if (message.isMembership())
+			{
+				MembershipInfo info = message.getMembershipInfo();
+				printMembershipInfo(info);
+			} else if ( message.isReject() ) 
+			{
+			        // Received a Reject message 
+				System.out.print("Received a ");
+				if(message.isUnreliable())
+					System.out.print("UNRELIABLE");
+				else if(message.isReliable())
+					System.out.print("RELIABLE");
+				else if(message.isFifo())
+					System.out.print("FIFO");
+				else if(message.isCausal())
+					System.out.print("CAUSAL");
+				else if(message.isAgreed())
+					System.out.print("AGREED");
+				else if(message.isSafe())
+					System.out.print("SAFE");
+				System.out.println(" REJECTED message.");
+				
+				System.out.println("Sent by  " + message.getSender() + ".");
+				
+				System.out.println("Type is " + message.getType() + ".");
+				
+				if(message.getEndianMismatch() == true)
+					System.out.println("There is an endian mismatch.");
+				else
+					System.out.println("There is no endian mismatch.");
+				
+				SpreadGroup groups[] = message.getGroups();
+				System.out.println("To " + groups.length + " groups.");
+				
+				byte data[] = message.getData();
+				System.out.println("The data is " + data.length + " bytes.");
+				
+				System.out.println("The message is: " + new String(data));
+			} else {
+			    System.out.println("Message is of unknown type: " + message.getServiceType() );
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+
+	private void printMembershipInfo(MembershipInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
